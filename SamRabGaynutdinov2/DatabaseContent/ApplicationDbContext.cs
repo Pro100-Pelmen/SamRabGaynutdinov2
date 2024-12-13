@@ -10,6 +10,7 @@ namespace SamRabGaynutdinov2.DatabaseContent;
 
 public class ApplicationDbContext : DbContext
 {
+    public DbSet<UserEntity> Users { get; set; }
     public DbSet<TrainingEntity> Trainings { get; set; } = null!;
 
     public ApplicationDbContext()

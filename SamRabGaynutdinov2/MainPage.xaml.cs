@@ -10,21 +10,14 @@ namespace SamRabGaynutdinov2
             InitializeComponent();
         }
 
-        private void RefreshData(object sender, EventArgs e)
+        private void LoginUser(object sender, EventArgs e)
         {
-            RefreshCollectionView();
-            RefreshV.IsRefreshing = false;
+
         }
 
-        private void GoToAddTrainingPage(object sender, EventArgs e)
+        private void GoToRegistrarionPage(object sender, TappedEventArgs e)
         {
-            AppShell.Current.GoToAsync(nameof(AddTrainingPage), true);
-        }
-
-        private void RefreshCollectionView()
-        {
-            ApplicationDbContext dbContext = new ApplicationDbContext();
-            TrainingCL.ItemsSource = dbContext.Trainings.ToList();
+            AppShell.Current.GoToAsync(nameof(RegistrationPage), true);
         }
     }
 
