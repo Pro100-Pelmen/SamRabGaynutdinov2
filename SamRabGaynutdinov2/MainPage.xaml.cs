@@ -1,24 +1,30 @@
-﻿namespace SamRabGaynutdinov2
+﻿using SamRabGaynutdinov2.DatabaseContent;
+
+namespace SamRabGaynutdinov2
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void RefreshData(object sender, EventArgs e)
         {
-            count++;
+            RefreshCollectionView();
+            RefreshV.IsRefreshing = false;
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private void GoToAddTrainingPage(object sender, EventArgs e)
+        {
+            AppShell.Current.GoToAsync(nameof(AddTrainingPage), true);
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void RefreshCollectionView()
+        {
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            TrainingCL.ItemsSource = dbContext.Trainings.ToList();
         }
     }
 
