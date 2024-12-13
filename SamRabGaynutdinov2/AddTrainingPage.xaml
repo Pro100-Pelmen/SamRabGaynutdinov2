@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SamRabGaynutdinov2.AddTrainingPage"
+             Title="Добавение записи о тренировке">
+    <VerticalStackLayout
+        Padding="30, 20"
+        Spacing="20"
+        VerticalOptions="Center">
+        <Entry x:Name="TitleEntry" Placeholder="Название упражнения"/>
+        <Editor
+            x:Name="DescriptionEntry"
+            MinimumHeightRequest="200"
+            Placeholder="Описание упражнения"/>
+        <Editor
+            x:Name="AmountEntry"
+            Keyboard="Numeric"
+            Placeholder="Кол-во подходов"/>
+        <Button Clicked="addTraining" Text="Добавить"/>
+    </VerticalStackLayout>
+</ContentPage>
