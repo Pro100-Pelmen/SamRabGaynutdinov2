@@ -2,12 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:entities="clr-namespace:SamRabGaynutdinov2.Entities"
-             x:Class="SamRabGaynutdinov2.MainPage"
+             x:Class="SamRabGaynutdinov2.LoginPage"
              Title="Мои тренировки">
     <ScrollView>
         <VerticalStackLayout
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
         Padding="20"
         Spacing="30">
 
@@ -16,27 +14,28 @@
                 Text="Авторизация!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-
-
             </VerticalStackLayout>
             <Entry
-            x:Name="UsernameEntry"
-            Placeholder="Имя пользователя"/>
+                x:Name="LoginEntry"
+                Placeholder="Имя пользователя"/>
             <Entry
-            x:Name="PasswordEntry"
-            Placeholder="Пароль"/>
-            <VerticalStackLayout>
-                <Button
+                x:Name="PasswordEntry"
+                Placeholder="Пароль"/>
+            <Button
                 x:Name="CounterBtn"
                 Text="Войти"
                 Clicked="LoginUser"/>
+            <VerticalStackLayout
+                Spacing="20">
                 <Label
-                Text="Еще не был у нас"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-                <Label Text="Регистрация"
-                TextColor="white"
-                HorizontalOptions="Center">
+                    Text="Еще не был у нас"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+                <Label 
+                    TextDecorations="Underline"
+                    Text="Регистрация"
+                    TextColor="white"
+                    HorizontalOptions="Center">
 
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="GoToRegistrarionPage"/>
