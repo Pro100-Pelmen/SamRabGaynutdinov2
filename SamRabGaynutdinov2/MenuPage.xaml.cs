@@ -8,6 +8,8 @@ namespace SamRabGaynutdinov2
         public MenuPage()
         {
             InitializeComponent();
+            var login = ApplicationData.CurrentUser.Login;
+            WelcomeLabel.Text = $"Добро пожаловать, {login}!";
         }
 
         private void RefreshData(object sender, EventArgs e)
@@ -25,6 +27,11 @@ namespace SamRabGaynutdinov2
         {
             ApplicationDbContext dbContext = new ApplicationDbContext();
             TrainingCL.ItemsSource = dbContext.Trainings.ToList();
+        }
+
+        private void GoToViewTrainingPage(object sender, EventArgs e)
+        {
+            AppShell.Current.GoToAsync(nameof(ViewTrainingPage), true);
         }
     }
 
